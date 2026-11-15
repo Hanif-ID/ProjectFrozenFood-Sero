@@ -55,8 +55,8 @@
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <span class="fw-semibold d-block">John Doe</span>
-                  <small class="text-muted">Admin</small>
+                  <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
+                  <small class="text-muted">{{ ucfirst(auth()->user()->role) }}</small>
                 </div>
               </div>
             </a>
@@ -89,10 +89,13 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="javascript:void(0);">
-              <i class="bx bx-power-off me-2"></i>
-              <span class="align-middle">Log Out</span>
-            </a>
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="dropdown-item">
+                <i class="bx bx-power-off me-2"></i>
+                <span class="align-middle">Log Out</span>
+              </button>
+            </form>
           </li>
         </ul>
       </li>

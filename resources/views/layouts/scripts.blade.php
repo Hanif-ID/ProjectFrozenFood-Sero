@@ -12,6 +12,6 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 
 <!-- Page JS -->
-<script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+@stack('page-scripts')
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>

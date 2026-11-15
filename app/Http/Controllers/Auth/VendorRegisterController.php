@@ -4,35 +4,39 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class VendorRegisterController extends Controller
 {
     // Menampilkan form register
     public function showRegistrationForm()
     {
-        return view('auth.vendor-register'); 
+        return view('auth.register');
     }
 
     // Memproses data register
-    public function register(Request $request)
+    public function register(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'terms' => ['accepted'],
+        ], [
+            'terms.accepted' => 'Anda harus menyetujui privacy policy & terms.',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 'vendor', // Otomatis set role sebagai vendor
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'], // di-hash otomatis oleh cast 'hashed'
+            'role' => User::ROLE_VENDOR,     // register publik selalu vendor
         ]);
 
-        // Opsional: Langsung login setelah register
-        auth()->login($user);
+        Auth::login($user);
+        $request->session()->regenerate();
 
         return redirect()->route('vendor.dashboard')->with('success', 'Registrasi berhasil!');
     }

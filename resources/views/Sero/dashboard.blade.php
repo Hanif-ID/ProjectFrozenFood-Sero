@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard')
+
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -9,7 +11,7 @@
         <div class="d-flex align-items-end row">
           <div class="col-sm-7">
             <div class="card-body">
-              <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+              <h5 class="card-title text-primary">Selamat datang, {{ auth()->user()->name }}! 🎉</h5>
               <p class="mb-4">
                 You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
                 your profile.
@@ -537,3 +539,7 @@
 </div>
 <!-- / Content -->
 @endsection
+
+@push('page-scripts')
+<script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+@endpush
