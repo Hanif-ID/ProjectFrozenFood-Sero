@@ -19,11 +19,25 @@
         <div>Dashboard</div>
       </a>
     </li>
+    
+    <li class="menu-item {{ request()->routeIs('admin.dashboard', 'vendor.dashboard') ? 'active' : '' }}">
+      <a href="#" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-shopping-bag"></i>
+        <div>Orders</div>
+      </a>
+    </li>
 
     <li class="menu-item {{ request()->routeIs('admin.dashboard', 'vendor.dashboard') ? 'active' : '' }}">
       <a href="#" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div>Orders</div>
+        <i class="menu-icon tf-icons bx bx-chat"></i>
+        <div>Chat</div>
+      </a>
+    </li>
+
+    <li class="menu-item {{ request()->routeIs('admin.dashboard', 'vendor.dashboard') ? 'active' : '' }}">
+      <a href="#" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-food-menu"></i>
+        <div>Form</div>
       </a>
     </li>
 
