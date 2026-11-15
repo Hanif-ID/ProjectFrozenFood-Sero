@@ -20,6 +20,13 @@
       </a>
     </li>
 
+    <li class="menu-item {{ request()->routeIs('admin.dashboard', 'vendor.dashboard') ? 'active' : '' }}">
+      <a href="#" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div>Orders</div>
+      </a>
+    </li>
+
     @if (auth()->user()->isAdmin())
       <li class="menu-header small text-uppercase"><span class="menu-header-text">Admin</span></li>
       <li class="menu-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
