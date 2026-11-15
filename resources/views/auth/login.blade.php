@@ -59,8 +59,26 @@
     </div>
   </form>
 
-  <p class="text-center">
+    <p class="text-center">
     <span>New on our platform?</span>
     <a href="{{ route('vendor.register') }}"><span>Create an account</span></a>
   </p>
+
+  <script>
+    document.addEventListener('click', function (e) {
+      var toggle = e.target.closest('.form-password-toggle .input-group-text');
+      if (!toggle) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      var input = toggle.parentElement.querySelector('input');
+      var icon = toggle.querySelector('i');
+      var show = input.type === 'password';
+
+      input.type = show ? 'text' : 'password';
+      icon.classList.toggle('bx-hide', !show);
+      icon.classList.toggle('bx-show', show);
+    }, true);
+  </script>
 @endsection

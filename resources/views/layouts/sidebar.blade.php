@@ -13,7 +13,6 @@
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    {{-- Dashboard: sudah punya halaman --}}
     <li class="menu-item {{ request()->routeIs('admin.dashboard', 'vendor.dashboard') ? 'active' : '' }}">
       <a href="{{ route(auth()->user()->homeRoute()) }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
@@ -21,8 +20,6 @@
       </a>
     </li>
 
-    {{-- Orders: belum ada halaman --}}
-    {{-- Nanti: href="{{ route('orders.index') }}" dan class active: request()->routeIs('orders.*') --}}
     <li class="menu-item">
       <a href="#" class="menu-link">
         <i class="menu-icon tf-icons bx bx-shopping-bag"></i>
@@ -30,7 +27,6 @@
       </a>
     </li>
 
-    {{-- Chat: belum ada halaman --}}
     <li class="menu-item">
       <a href="#" class="menu-link">
         <i class="menu-icon tf-icons bx bx-chat"></i>
@@ -38,7 +34,6 @@
       </a>
     </li>
 
-    {{-- Form: belum ada halaman --}}
     <li class="menu-item">
       <a href="#" class="menu-link">
         <i class="menu-icon tf-icons bx bx-food-menu"></i>

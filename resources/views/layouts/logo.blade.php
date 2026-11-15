@@ -30,13 +30,13 @@ id="path-5"
 <mask id="mask-2" fill="white">
 <use xlink:href="#path-1"></use>
 </mask>
-<use fill="#696cff" xlink:href="#path-1"></use>
+<use fill="#2176FF" xlink:href="#path-1"></use>
 <g id="Path-3" mask="url(#mask-2)">
-<use fill="#696cff" xlink:href="#path-3"></use>
+<use fill="#33A1FD" xlink:href="#path-3"></use>
 <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
 </g>
 <g id="Path-4" mask="url(#mask-2)">
-<use fill="#696cff" xlink:href="#path-4"></use>
+<use fill="#31393c" xlink:href="#path-4"></use>
 <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
 </g>
 </g>
@@ -44,7 +44,7 @@ id="path-5"
 id="Triangle"
 transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
 >
-<use fill="#696cff" xlink:href="#path-5"></use>
+<use fill="#FDCA40" xlink:href="#path-5"></use>
 <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
 </g>
 </g>
