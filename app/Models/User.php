@@ -45,7 +45,11 @@ class User extends Authenticatable
 
     /** Nama route dashboard sesuai role user. */
     public function homeRoute(): string
-    {
-        return $this->isAdmin() ? 'admin.dashboard' : 'vendor.dashboard';
-    }
+{
+    return match ($this->role) {
+        'admin'  => 'admin.dashboard',
+        'vendor' => 'vendor.dashboard',
+        default  => 'home',
+    };
+}
 }

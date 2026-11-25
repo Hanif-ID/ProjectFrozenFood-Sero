@@ -13,12 +13,28 @@
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    <li class="menu-item {{ request()->routeIs('admin.dashboard', 'vendor.dashboard') ? 'active' : '' }}">
+  @if (auth()->user()->role === 'admin')
+    <li class="menu-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+      <a href="{{ route('admin.dashboard') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div>Dashboard Admin</div>
+      </a>
+    </li>
+
+    <li class="menu-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+      <a href="{{ route('admin.users.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-user"></i>
+        <div>Manajemen User</div>
+      </a>
+    </li>
+  @else
+    <li class="menu-item {{ request()->routeIs('vendor.dashboard') ? 'active' : '' }}">
       <a href="{{ route(auth()->user()->homeRoute()) }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div>Dashboard</div>
       </a>
     </li>
+  @endif
 
     <li class="menu-item">
       <a href="#" class="menu-link">
